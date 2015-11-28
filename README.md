@@ -17,3 +17,4 @@
 * [意外と知られていない Windows のエラーコードの数々 - 岩田 雅樹 のブログ - Site Home - MSDN Blogs](http://blogs.msdn.com/b/masaki/archive/2010/03/04/windows-error-code-types.aspx)
 * [MIDI Table](http://fmslogo.sourceforge.net/manual/midi-table.html)
 * [README.mdファイル。マークダウン記法まとめ | codechord](http://codechord.com/2012/01/readme-markdown/)
+* [白執事の徒然なる日々 VB.NET で USBデバイス を検出する！](http://siroshitsuji.blog.fc2.com/blog-entry-19.html)
