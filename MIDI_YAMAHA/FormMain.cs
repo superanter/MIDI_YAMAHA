@@ -85,7 +85,8 @@ namespace MIDI_YAMAHA
 
             if ( dw1 != 0xF8 && dw1 != 0xFE)
             {
-                Invoke(new addLogDelegate(addLog), string.Format("0x{0}\t0x{1}\t0x{2}\t0x{3}",
+                Invoke(new addLogDelegate(addLog), string.Format("0x{0}\t0x{1}\t0x{2}\t0x{3}\t0x{4}",
+                    DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.ffff"),
                     msg.ToString("X8"),
                     user.ToString("X8"),
                     dw1.ToString("X8"),
@@ -106,11 +107,13 @@ namespace MIDI_YAMAHA
 
         private void txtWriteTxt_Click(object sender, EventArgs e)
         {
+            txtWriteTxt.Enabled = false;
             string strDateTime = DateTime.Now.ToString("yyyyMMddHHmmssffff");
             StreamWriter myFile = File.CreateText(strDateTime + ".txt");
             myFile.Write(textBoxDebug.Text);
             myFile.Close();
-            MessageBox.Show("OK");
+            //MessageBox.Show("OK");
+            txtWriteTxt.Enabled = true;
         }
     }
 }
