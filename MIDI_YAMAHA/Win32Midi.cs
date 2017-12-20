@@ -205,9 +205,35 @@ namespace MIDI_YAMAHA
         /// <param name="lphMidiIn">设备handle。MIDI输入设备的句柄。</param>
         /// <param name="wMsg">传来的消息号。输入消息。</param>
         /// <param name="dwInstance">用户参数指针，如果没传入一般为null。实例数据提供与midiInOpen功能。</param>
-        /// <param name="dwParam1">消息参数1</param>
-        /// <param name="dwParam2">消息参数2</param>
+        /// <param name="dwParam1">消息参数1(dwMidiMessage)</param>
+        /// <param name="dwParam2">消息参数2(dwTimestamp)</param>
         public delegate void MidiInProc(IntPtr lphMidiIn, uint wMsg, uint dwInstance, uint dwParam1, uint dwParam2);
+        
+        /*
+        MIM_DATA 
+            dwParam1 = dwMidiMessage 
+            dwParam2 = dwTimestamp 
 
+        Parameters
+
+        dwMidiMessage
+            MIDI message that was received. The message is packed into a doubleword value as follows:
+        High word
+            High-order  byte    Not used.
+            Low-order   byte    Contains a second byte of MIDI data (when needed).
+        Low word
+            High-order  byte	Contains the first byte of MIDI data (when needed).
+            Low-order   byte	Contains the MIDI status.
+        The two MIDI data bytes are optional, depending on the MIDI status byte.
+
+        dwTimestamp
+            Time that the message was received by the input device driver. The time stamp is specified in milliseconds, beginning at zero when the midiInStart function was called.
+        Return Value
+            This message does not return a value.
+
+        Remarks
+            MIDI messages received from a MIDI input port have running status disabled; each message is expanded to include the MIDI status byte.
+            This message is not sent when a MIDI system-exclusive message is received.
+        */
     }
 }

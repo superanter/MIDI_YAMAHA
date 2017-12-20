@@ -44,12 +44,12 @@
             this.textBoxDebug.Name = "textBoxDebug";
             this.textBoxDebug.ReadOnly = true;
             this.textBoxDebug.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDebug.Size = new System.Drawing.Size(557, 270);
+            this.textBoxDebug.Size = new System.Drawing.Size(592, 270);
             this.textBoxDebug.TabIndex = 0;
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(414, 15);
+            this.buttonClear.Location = new System.Drawing.Point(440, 15);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(75, 23);
             this.buttonClear.TabIndex = 1;
@@ -59,7 +59,7 @@
             // 
             // txtWriteTxt
             // 
-            this.txtWriteTxt.Location = new System.Drawing.Point(495, 15);
+            this.txtWriteTxt.Location = new System.Drawing.Point(530, 15);
             this.txtWriteTxt.Name = "txtWriteTxt";
             this.txtWriteTxt.Size = new System.Drawing.Size(75, 23);
             this.txtWriteTxt.TabIndex = 2;
@@ -80,12 +80,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(582, 333);
+            this.ClientSize = new System.Drawing.Size(617, 333);
             this.Controls.Add(this.lblMes);
             this.Controls.Add(this.txtWriteTxt);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.textBoxDebug);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMain";
