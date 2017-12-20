@@ -9,8 +9,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
-namespace MidiKeyboardTest
+namespace MIDI_YAMAHA
 {
     public partial class FormMain : Form
     {
@@ -34,13 +35,14 @@ namespace MidiKeyboardTest
         private const int WmDeviceChange = 0x0219;
 
         private IntPtr midiIn;
-        private Win32Midi.MidiInOpenCallback callbackDelegate;
+        private Win32Midi.MidiInProc callbackDelegate;
         private IntPtr callbackPtr;
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            callbackDelegate = new Win32Midi.MidiInOpenCallback(callback);
+            callbackDelegate = new Win32Midi.MidiInProc(callback);
             callbackPtr = (IntPtr)Marshal.GetFunctionPointerForDelegate(callbackDelegate);
+            lblMes.Text = "Devices-sum;" + Win32Midi.MidiInGetNumDevs();
             new Thread(new ThreadStart(detectDevice)).Start();
         }
 
@@ -77,10 +79,18 @@ namespace MidiKeyboardTest
 
         private void callback(IntPtr hdrvr, uint msg, uint user, uint dw1, uint dw2)
         {
-            var state = (int)dw1 & 0xff;
-            var data1 = (int)dw1 >> 8 & 0xff;
-            var data2 = (int)dw1 >> 16 & 0xff;
-            Invoke(new addLogDelegate(addLog), string.Format("{0}\t{1}\t{2}", state, data1, data2));
+            //var state = (int)dw1 & 0xff;
+            //var data1 = (int)dw1 >> 8 & 0xff;
+            //var data2 = (int)dw1 >> 16 & 0xff;
+
+            if ( dw1 != 0xF8 && dw1 != 0xFE)
+            {
+                Invoke(new addLogDelegate(addLog), string.Format("0x{0}\t0x{1}\t0x{2}\t0x{3}",
+                    msg.ToString("X8"),
+                    user.ToString("X8"),
+                    dw1.ToString("X8"),
+                    dw2.ToString("X8")));
+            }
         }
 
         private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
@@ -92,6 +102,15 @@ namespace MidiKeyboardTest
         private void buttonClear_Click(object sender, EventArgs e)
         {
             textBoxDebug.Text = "";
+        }
+
+        private void txtWriteTxt_Click(object sender, EventArgs e)
+        {
+            string strDateTime = DateTime.Now.ToString("yyyyMMddHHmmssffff");
+            StreamWriter myFile = File.CreateText(strDateTime + ".txt");
+            myFile.Write(textBoxDebug.Text);
+            myFile.Close();
+            MessageBox.Show("OK");
         }
     }
 }
