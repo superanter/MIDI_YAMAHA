@@ -44,13 +44,13 @@ namespace MIDI_YAMAHA
             callbackPtr = (IntPtr)Marshal.GetFunctionPointerForDelegate(callbackDelegate);
 
             lblMes.Text = "Devices-sum:" + Win32Midi.MidiInGetNumDevs();
-            Win32Midi.MidiInCaps midiInCap = new Win32Midi.MidiInCaps();
-            Win32Midi.MidiInGetDevCaps(0, ref midiInCap, 0xff);
-            lblInCaps.Text = "Mid:0x" + midiInCap.wMid.ToString("X4")
-                + "    Pid:0x" + midiInCap.wPid.ToString("X4")
-                + "    DriverVersion:0x" + midiInCap.vDriverVersion.ToString("X4")
-                + "    Pname:" + midiInCap.szPname.ToString()
-                + "    Support:0x" + midiInCap.dwSupport.ToString("X2");
+            Win32Midi.MidiInCaps getMidiInCap = new Win32Midi.MidiInCaps();
+            Win32Midi.MidiInGetDevCaps(0, ref getMidiInCap, Win32Midi.MaxPNameLen);
+            lblInCaps.Text = "Mid:0x" + getMidiInCap.wMid.ToString("X4")
+                + "    Pid:0x" + getMidiInCap.wPid.ToString("X4")
+                + "    DriverVersion:0x" + getMidiInCap.vDriverVersion.ToString("X4")
+                + "    Pname:" + getMidiInCap.szPname.ToString()
+                + "    Support:0x" + getMidiInCap.dwSupport.ToString("X2");
 
             new Thread(new ThreadStart(detectDevice)).Start();
         }
