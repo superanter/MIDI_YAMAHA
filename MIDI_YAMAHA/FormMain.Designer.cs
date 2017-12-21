@@ -40,12 +40,12 @@
             this.textBoxDebug.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDebug.Location = new System.Drawing.Point(13, 79);
+            this.textBoxDebug.Location = new System.Drawing.Point(13, 81);
             this.textBoxDebug.Multiline = true;
             this.textBoxDebug.Name = "textBoxDebug";
             this.textBoxDebug.ReadOnly = true;
             this.textBoxDebug.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDebug.Size = new System.Drawing.Size(592, 281);
+            this.textBoxDebug.Size = new System.Drawing.Size(592, 279);
             this.textBoxDebug.TabIndex = 0;
             // 
             // buttonClear
@@ -81,7 +81,7 @@
             // 
             this.lblInCaps.Location = new System.Drawing.Point(12, 52);
             this.lblInCaps.Name = "lblInCaps";
-            this.lblInCaps.Size = new System.Drawing.Size(593, 24);
+            this.lblInCaps.Size = new System.Drawing.Size(593, 26);
             this.lblInCaps.TabIndex = 4;
             this.lblInCaps.Text = "Message";
             // 

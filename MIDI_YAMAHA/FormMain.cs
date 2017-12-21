@@ -43,14 +43,25 @@ namespace MIDI_YAMAHA
             callbackDelegate = new Win32Midi.MidiInProc(callback);
             callbackPtr = (IntPtr)Marshal.GetFunctionPointerForDelegate(callbackDelegate);
 
-            lblMes.Text = "Devices-sum:" + Win32Midi.MidiInGetNumDevs();
+            uint uDevicesSum = Win32Midi.MidiInGetNumDevs();
+            lblMes.Text = "Devices-sum:" + uDevicesSum.ToString();
             Win32Midi.MidiInCaps getMidiInCap = new Win32Midi.MidiInCaps();
-            Win32Midi.MidiInGetDevCaps(0, ref getMidiInCap, Win32Midi.MaxPNameLen);
-            lblInCaps.Text = "Mid:0x" + getMidiInCap.wMid.ToString("X4")
-                + "    Pid:0x" + getMidiInCap.wPid.ToString("X4")
-                + "    DriverVersion:0x" + getMidiInCap.vDriverVersion.ToString("X4")
-                + "    Pname:" + getMidiInCap.szPname.ToString()
-                + "    Support:0x" + getMidiInCap.dwSupport.ToString("X2");
+            for (uint i=0;i< uDevicesSum;i++)
+            {
+                Win32Midi.MidiInGetDevCaps(i, ref getMidiInCap, Win32Midi.MaxPNameLen);
+                int Version1 = (int)getMidiInCap.vDriverVersion >> 8 & 0xff;
+                int Version2 = (int)getMidiInCap.vDriverVersion & 0xff;
+                lblInCaps.Text = i.ToString() +
+                    ": Mid:0x" + getMidiInCap.wMid.ToString("X4") +
+                    "    Pid:0x" + getMidiInCap.wPid.ToString("X4") +
+                    "    DriverVersion: V" + Version1.ToString() + "." +Version2.ToString() +
+                    "    Pname:" + getMidiInCap.szPname.ToString() +
+                    "    Support:0x" + getMidiInCap.dwSupport.ToString("X2");
+                if (i < uDevicesSum - 1)
+                {
+                    lblInCaps.Text += "\n";
+                }
+            }
 
             new Thread(new ThreadStart(detectDevice)).Start();
         }
@@ -86,20 +97,20 @@ namespace MIDI_YAMAHA
             mutexDetectDevice.ReleaseMutex();
         }
 
-        private void callback(IntPtr hdrvr, uint msg, uint user, uint dw1, uint dw2)
+        private void callback(IntPtr lphMidiIn, uint wMsg, uint dwInstance, uint dwParam1, uint dwParam2)
         {
             //var state = (int)dw1 & 0xff;
             //var data1 = (int)dw1 >> 8 & 0xff;
             //var data2 = (int)dw1 >> 16 & 0xff;
 
-            if ( dw1 != 0xF8 && dw1 != 0xFE)
+            if (dwParam1 != 0xF8 && dwParam1 != 0xFE)
             {
                 Invoke(new addLogDelegate(addLog), string.Format("{0}\t0x{1}\t0x{2}\t0x{3}\t0x{4}",
                     DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.ffff"),
-                    msg.ToString("X8"),
-                    user.ToString("X8"),
-                    dw1.ToString("X8"),
-                    dw2.ToString("X8")));
+                    wMsg.ToString("X8"),
+                    dwInstance.ToString("X8"),
+                    dwParam1.ToString("X8"),
+                    dwParam2.ToString("X8")));
             }
         }
 
