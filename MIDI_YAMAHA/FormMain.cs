@@ -43,6 +43,7 @@ namespace MIDI_YAMAHA
             callbackDelegate = new Win32Midi.MidiInProc(callback);
             callbackPtr = (IntPtr)Marshal.GetFunctionPointerForDelegate(callbackDelegate);
             lblMes.Text = "Devices-sum:" + Win32Midi.MidiInGetNumDevs();
+            //Win32Midi.MidiInCaps midiInCap = new Win32Midi.MidiInCaps();
             new Thread(new ThreadStart(detectDevice)).Start();
         }
 
