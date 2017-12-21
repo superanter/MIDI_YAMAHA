@@ -32,6 +32,7 @@
             this.buttonClear = new System.Windows.Forms.Button();
             this.txtWriteTxt = new System.Windows.Forms.Button();
             this.lblMes = new System.Windows.Forms.Label();
+            this.lblInCaps = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBoxDebug
@@ -39,17 +40,17 @@
             this.textBoxDebug.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDebug.Location = new System.Drawing.Point(13, 51);
+            this.textBoxDebug.Location = new System.Drawing.Point(13, 79);
             this.textBoxDebug.Multiline = true;
             this.textBoxDebug.Name = "textBoxDebug";
             this.textBoxDebug.ReadOnly = true;
             this.textBoxDebug.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDebug.Size = new System.Drawing.Size(592, 270);
+            this.textBoxDebug.Size = new System.Drawing.Size(592, 281);
             this.textBoxDebug.TabIndex = 0;
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(440, 15);
+            this.buttonClear.Location = new System.Drawing.Point(434, 15);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(75, 23);
             this.buttonClear.TabIndex = 1;
@@ -70,17 +71,26 @@
             // lblMes
             // 
             this.lblMes.AutoSize = true;
-            this.lblMes.Location = new System.Drawing.Point(25, 20);
+            this.lblMes.Location = new System.Drawing.Point(11, 20);
             this.lblMes.Name = "lblMes";
             this.lblMes.Size = new System.Drawing.Size(77, 12);
             this.lblMes.TabIndex = 3;
             this.lblMes.Text = "Devices-sum:";
             // 
+            // lblInCaps
+            // 
+            this.lblInCaps.Location = new System.Drawing.Point(12, 52);
+            this.lblInCaps.Name = "lblInCaps";
+            this.lblInCaps.Size = new System.Drawing.Size(593, 24);
+            this.lblInCaps.TabIndex = 4;
+            this.lblInCaps.Text = "Message";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(617, 333);
+            this.ClientSize = new System.Drawing.Size(617, 372);
+            this.Controls.Add(this.lblInCaps);
             this.Controls.Add(this.lblMes);
             this.Controls.Add(this.txtWriteTxt);
             this.Controls.Add(this.buttonClear);
@@ -103,6 +113,7 @@
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button txtWriteTxt;
         private System.Windows.Forms.Label lblMes;
+        private System.Windows.Forms.Label lblInCaps;
     }
 }
 
