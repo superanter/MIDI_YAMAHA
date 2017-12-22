@@ -28,92 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBoxDebug = new System.Windows.Forms.TextBox();
-            this.buttonClear = new System.Windows.Forms.Button();
-            this.txtWriteTxt = new System.Windows.Forms.Button();
-            this.lblMes = new System.Windows.Forms.Label();
-            this.lblInCaps = new System.Windows.Forms.Label();
+            this.btnMIDI2PC = new System.Windows.Forms.Button();
+            this.btnText2Message = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBoxDebug
+            // btnMIDI2PC
             // 
-            this.textBoxDebug.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDebug.Location = new System.Drawing.Point(13, 81);
-            this.textBoxDebug.Multiline = true;
-            this.textBoxDebug.Name = "textBoxDebug";
-            this.textBoxDebug.ReadOnly = true;
-            this.textBoxDebug.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDebug.Size = new System.Drawing.Size(592, 279);
-            this.textBoxDebug.TabIndex = 0;
+            this.btnMIDI2PC.Location = new System.Drawing.Point(49, 38);
+            this.btnMIDI2PC.Name = "btnMIDI2PC";
+            this.btnMIDI2PC.Size = new System.Drawing.Size(101, 54);
+            this.btnMIDI2PC.TabIndex = 0;
+            this.btnMIDI2PC.Text = "MIDI -> PC";
+            this.btnMIDI2PC.UseVisualStyleBackColor = true;
+            this.btnMIDI2PC.Click += new System.EventHandler(this.btnMIDI2PC_Click);
             // 
-            // buttonClear
+            // btnText2Message
             // 
-            this.buttonClear.Location = new System.Drawing.Point(434, 15);
-            this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(75, 23);
-            this.buttonClear.TabIndex = 1;
-            this.buttonClear.Text = "clear";
-            this.buttonClear.UseVisualStyleBackColor = true;
-            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
-            // 
-            // txtWriteTxt
-            // 
-            this.txtWriteTxt.Location = new System.Drawing.Point(530, 15);
-            this.txtWriteTxt.Name = "txtWriteTxt";
-            this.txtWriteTxt.Size = new System.Drawing.Size(75, 23);
-            this.txtWriteTxt.TabIndex = 2;
-            this.txtWriteTxt.Text = "WriteText";
-            this.txtWriteTxt.UseVisualStyleBackColor = true;
-            this.txtWriteTxt.Click += new System.EventHandler(this.txtWriteTxt_Click);
-            // 
-            // lblMes
-            // 
-            this.lblMes.AutoSize = true;
-            this.lblMes.Location = new System.Drawing.Point(11, 20);
-            this.lblMes.Name = "lblMes";
-            this.lblMes.Size = new System.Drawing.Size(77, 12);
-            this.lblMes.TabIndex = 3;
-            this.lblMes.Text = "Devices-sum:";
-            // 
-            // lblInCaps
-            // 
-            this.lblInCaps.Location = new System.Drawing.Point(12, 52);
-            this.lblInCaps.Name = "lblInCaps";
-            this.lblInCaps.Size = new System.Drawing.Size(593, 26);
-            this.lblInCaps.TabIndex = 4;
-            this.lblInCaps.Text = "Message";
+            this.btnText2Message.Location = new System.Drawing.Point(214, 38);
+            this.btnText2Message.Name = "btnText2Message";
+            this.btnText2Message.Size = new System.Drawing.Size(101, 54);
+            this.btnText2Message.TabIndex = 1;
+            this.btnText2Message.Text = "Text Message";
+            this.btnText2Message.UseVisualStyleBackColor = true;
+            this.btnText2Message.Click += new System.EventHandler(this.btnText2Message_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(617, 372);
-            this.Controls.Add(this.lblInCaps);
-            this.Controls.Add(this.lblMes);
-            this.Controls.Add(this.txtWriteTxt);
-            this.Controls.Add(this.buttonClear);
-            this.Controls.Add(this.textBoxDebug);
+            this.ClientSize = new System.Drawing.Size(378, 140);
+            this.Controls.Add(this.btnText2Message);
+            this.Controls.Add(this.btnMIDI2PC);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormMain";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
-            this.Load += new System.EventHandler(this.FormMain_Load);
+            this.Text = "MIDI YAMAHA";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBoxDebug;
-        private System.Windows.Forms.Button buttonClear;
-        private System.Windows.Forms.Button txtWriteTxt;
-        private System.Windows.Forms.Label lblMes;
-        private System.Windows.Forms.Label lblInCaps;
+        private System.Windows.Forms.Button btnMIDI2PC;
+        private System.Windows.Forms.Button btnText2Message;
     }
 }
-
