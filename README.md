@@ -25,3 +25,8 @@
 * 2017-12-14：把textBox加上了垂直滚动条，修改了输出的数据，加入了按键过滤功能。
 * 2017-12-15：重新上传英文版Win32Midi.cs，替换以前的日文版；修改输出数据，加入了导出log文本文件功能。
 * 2017-12-19：重新上传大量代码，替换原有代码。
+
+* [MIDI_百度百科](https://baike.baidu.com/item/MIDI/217824)
+* [MIDI文件格式_百度百科](https://baike.baidu.com/item/midi%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F)
+* [MIDI文件格式分析──理论篇](https://www.midifan.com/modulearticle-detailview-901.htm)
+* [MIDI文件格式分析──实践篇](https://www.midifan.com/modulearticle-detailview-902.htm)
